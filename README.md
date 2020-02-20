@@ -1,6 +1,6 @@
 # broken_crystals
 
-TODO: Write a description here
+This project is a fun off-time task to create a vulnerable web app in Crystal.
 
 ## Installation
 
@@ -12,11 +12,11 @@ TODO: Write usage instructions here
 
 ## Development
 
-TODO: Write development instructions here
+Development goals and issues will be tracked in the issues scetion
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/broken_crystals/fork>)
+1. Fork it (<https://github.com/NeuraLEgion/broken_crystals/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
