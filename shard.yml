@@ -1,0 +1,17 @@
+name: broken_crystals
+version: 0.1.0
+
+authors:
+  - Bar Hofesh <bar.hofesh@gmail.com>
+
+targets:
+  broken_crystals:
+    main: src/broken_crystals.cr
+
+dependencies:
+      kemal:
+        github: kemalcr/kemal
+
+crystal: 0.33.0
+
+license: MIT
