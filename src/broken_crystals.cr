@@ -22,10 +22,29 @@ module BrokenCrystals
     render "src/views/main.ecr"
   end
 
+  get "/greeter" do |env|
+  end
+
+  post "/greeter" do |env|
+  end
+
   get "/uptime" do |env|
     response = `#{env.params.query["command"]? || "uptime"}`
     env.response.headers["Content-Type"] = "text/html"
     render "src/views/uptime.ecr"
+  end
+
+  get "/picture" do |env|
+    url = env.params.query["url"]?
+    resp = HTTP::Client.get(url.to_s)
+    env.response.headers["Content-Type"] = resp.content_type.to_s
+    resp.body
+  end
+
+  get "/redirect" do |env|
+    url = env.params.query["url"]?
+    env.response.headers["Location"] = url.to_s
+    env.response.status_code = 301
   end
 
   Kemal.run
