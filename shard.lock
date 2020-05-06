@@ -1,11 +1,7 @@
 version: 1.0
 shards:
   ameba:
-<<<<<<< HEAD
     github: crystal-ameba/ameba
-=======
-    github: veelenga/ameba
->>>>>>> feat(user): add user auth
     version: 0.12.1
 
   db:
