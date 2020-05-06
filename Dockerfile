@@ -6,7 +6,7 @@ FROM ubuntu:19.10 AS builder
 
 LABEL org.opencontainers.image.vendor="NeuraLegion"
 LABEL org.opencontainers.image.title="Broken crystals"
-LABEL org.opencontainers.image.source="https://github.com/NeuraLegion/repeater"
+LABEL org.opencontainers.image.source="https://github.com/NeuraLegion/broken_crystals"
 LABEL org.opencontainers.image.authors="Bar Hofesh <bar.hofesh@neuralegion.com>, \
   Anatol Karalkou <anatol.karalkou@neuralegion.com>, \
   Sijawusz Pur Rahnama <sija@sija.pl>"
@@ -29,7 +29,7 @@ RUN apt-get install -y --no-install-recommends crystal
 # Create relevant directories
 RUN mkdir -p /opt/broken_crystals
 
-WORKDIR /opt/repeater
+WORKDIR /opt/broken_crystals
 
 COPY src ./src
 COPY spec ./spec
