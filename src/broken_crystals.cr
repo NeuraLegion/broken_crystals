@@ -86,8 +86,13 @@ module BrokenCrystals
     render "src/views/reflected_xss.ecr"
   end
 
+  # "%3Balert(6)%3B"
   get "/xss_six" do |env|
-    id = env.params.query["id"]? || "6"
+    id = <<-EOF
+      <script>
+        var id = "#{URI.decode(env.params.query["id"]? || "6")}";
+      </script>
+      EOF
     env.response.headers["Content-Type"] = "text/html"
     render "src/views/reflected_xss.ecr"
   end
