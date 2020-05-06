@@ -14,6 +14,10 @@ dependencies:
       kemal:
         github: kemalcr/kemal
 
+development_dependencies:
+  ameba:
+    github: veelenga/ameba
+
 crystal: 0.33.0
 
 license: MIT

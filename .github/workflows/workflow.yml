@@ -1,0 +1,32 @@
+on:
+  pull_request:
+    branches:
+      - master
+
+name: Ameba and check format
+
+jobs:
+  ameba:
+    name: Ameba
+    runs-on: ubuntu-latest
+    container: crystallang/crystal
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: shards install
+
+      - name: Run Ameba linter
+        run: bin/ameba
+
+  check-format:
+    name: Check format
+    runs-on: ubuntu-latest
+    container: crystallang/crystal
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Check sources format
+        run: crystal tool format --check
