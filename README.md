@@ -12,7 +12,7 @@ TODO: Write usage instructions here
 
 ## Development
 
-Development goals and issues will be tracked in the issues scetion
+Development goals and issues will be tracked in the issues section
 
 ## Contributing
 
