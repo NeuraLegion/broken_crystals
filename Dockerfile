@@ -33,6 +33,8 @@ WORKDIR /opt/broken_crystals
 
 COPY src ./src
 COPY spec ./spec
+COPY public/ ./public/
+
 # COPY spec_integration ./spec_integration
 COPY shard.yml ./
 
@@ -57,6 +59,7 @@ RUN apt-get update -qq --fix-missing && apt-get install -y --no-install-recommen
 WORKDIR /opt/broken_crystals
 
 COPY --from=builder /opt/broken_crystals/bin/broken_crystals /usr/bin/
+COPY ./public/ /opt/broken_crystals/
 
 
 ENTRYPOINT ["/usr/bin/broken_crystals"]
