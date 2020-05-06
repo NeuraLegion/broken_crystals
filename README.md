@@ -12,7 +12,7 @@ TODO: Write usage instructions here
 
 ## Development
 
-Development goals and issues will be tracked in the issues scetion
+Development goals and issues will be tracked in the issues section
 
 ## Contributing
 
@@ -24,4 +24,5 @@ Development goals and issues will be tracked in the issues scetion
 
 ## Contributors
 
-- [Bar Hofesh](https://github.com/your-github-user) - creator and maintainer
+- [Bar Hofesh](https://github.com/bararchy) - creator and maintainer
+- [Mirsad Halilcevic](https://github.com/sixaphone) - maintainer
