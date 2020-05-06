@@ -1,4 +1,5 @@
 # TODO: Write documentation for `BrokenCrystals`
+require "../public/**"
 require "kemal"
 require "ecr"
 
@@ -95,6 +96,23 @@ module BrokenCrystals
       EOF
     env.response.headers["Content-Type"] = "text/html"
     render "src/views/reflected_xss.ecr"
+  end
+
+  # ../../../../../../../etc/passwd
+  get "/lfi_one" do |env|
+    image = env.params.query["image"]?
+    image = "public/LFI/#{image}"
+    send_file env, image
+    env.response.headers["Content-Type"] = "text/html"
+  end
+
+  # ....//....//....//....//....//....//etc/passwd
+  get "/lfi_two" do |env|
+    image = env.params.query["image"]?
+    image = "public/LFI/#{image}"
+    image = image.gsub("../", "")
+    send_file env, image
+    env.response.headers["Content-Type"] = "text/html"
   end
 
   Kemal.run
