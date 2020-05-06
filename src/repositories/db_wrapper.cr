@@ -1,6 +1,6 @@
 module BrokenCrystal
   class DBWrapper
-    @queryRunner : DB::Database
+    @query_runner : DB::Database
 
     def initialize
       @query_runner = DB.open(ENV["POSTGRES_URL"])
