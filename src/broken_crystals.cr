@@ -101,6 +101,16 @@ module BrokenCrystals
     render "src/views/reflected_xss.ecr"
   end
 
+  get "/dom_xss" do |env|
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/dom_xss.ecr"
+  end
+
+  get "/dom_xss2" do |env|
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/dom_xss2.ecr"
+  end
+
   # ../../../../../../../etc/passwd
   get "/lfi_one" do |env|
     image = env.params.query["image"]?

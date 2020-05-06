@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>DOM XSS 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <form id="form">
+      <label for="first_name">First name</label> <input type="text" id="first_name">
+      <label for="last_name">Last name</label> <input type="text" id="last_name">
+      <button id="submit_button">Submit</button>
+    </form>
+    <script>
+      function run(event) {
+        event.preventDefault();
+        const { value: firstName } = document.getElementById("first_name");
+        const { value: lastName } = document.getElementById("last_name");
+        const tagString = `<div>${firstName} ${lastName}</div>`;
+        const range = document.createRange();
+        range.selectNode(document.documentElement)
+        const documentFragment = range.createContextualFragment(tagString);
+        document.body.appendChild(documentFragment);
+      }  const button = document.getElementById('submit_button');
+      button.addEventListener('click', run);
+    </script>
+  </body>
+</html>
