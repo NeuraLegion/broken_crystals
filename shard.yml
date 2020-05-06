@@ -13,6 +13,8 @@ targets:
 dependencies:
       kemal:
         github: kemalcr/kemal
+      pg:
+        github: will/crystal-pg
 
 development_dependencies:
   ameba:
