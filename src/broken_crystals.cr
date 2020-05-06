@@ -47,5 +47,28 @@ module BrokenCrystals
     env.response.status_code = 301
   end
 
+  # <script>alert(1)</script>
+  get "/xss_one" do |env|
+    id = env.params.query["id"]? || "1"
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/reflected_xss.ecr"
+  end
+
+  # <sCrIpt>alert(1)</sCriPt>
+  get "/xss_two" do |env|
+    id = env.params.query["id"]? || "2"
+    ["<script>", "</script>"].each { |var| id = id.gsub(var, "") }
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/reflected_xss.ecr"
+  end
+
+  # <scr<script>ipt>alert(1)</scr</script>ipt>
+  get "/xss_three" do |env|
+    id = env.params.query["id"]? || "3"
+    [/<script>/i, /<\/script>/i].each { |r| id = id.gsub(r, "") }
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/reflected_xss.ecr"
+  end
+
   Kemal.run
 end
