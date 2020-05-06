@@ -70,5 +70,27 @@ module BrokenCrystals
     render "src/views/reflected_xss.ecr"
   end
 
+  # <a onmouseover="alert(1)"\>Click me!</a\>
+  get "/xss_four" do |env|
+    id = env.params.query["id"]? || "4"
+    id = id.gsub(/script/i, "")
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/reflected_xss.ecr"
+  end
+
+  # <script>eval(String.fromCharCode(97, 108, 101, 114, 116, 40, 53, 41))</script>
+  get "/xss_five" do |env|
+    id = env.params.query["id"]? || "5"
+    id = id.gsub(/alert/i, "")
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/reflected_xss.ecr"
+  end
+
+  get "/xss_six" do |env|
+    id = env.params.query["id"]? || "6"
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/reflected_xss.ecr"
+  end
+
   Kemal.run
 end
