@@ -25,5 +25,4 @@ module BrokenCrystals
             @db.exec("SELECT * FROM #{@table} WHERE #{column} ~ #{value}")
         end
     end
-  end
 end
