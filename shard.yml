@@ -11,8 +11,6 @@ targets:
 dependencies:
       kemal:
         github: kemalcr/kemal
-      db:
-        github: crystal-lang/crystal-db
       pg:
         github: will/crystal-pg
 
