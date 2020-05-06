@@ -8,8 +8,8 @@ LABEL org.opencontainers.image.vendor="NeuraLegion"
 LABEL org.opencontainers.image.title="Broken crystals"
 LABEL org.opencontainers.image.source="https://github.com/NeuraLegion/broken_crystals"
 LABEL org.opencontainers.image.authors="Bar Hofesh <bar.hofesh@neuralegion.com>, \
-  Anatol Karalkou <anatol.karalkou@neuralegion.com>, \
-  Sijawusz Pur Rahnama <sija@sija.pl>"
+  Mirsad Halicevic <mirsad.halicevic@neuralegion.com>, \
+  Amar Zlojic <amar.zlojic@neuralegion.com>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
