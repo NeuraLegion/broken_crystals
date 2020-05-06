@@ -24,4 +24,5 @@ Development goals and issues will be tracked in the issues section
 
 ## Contributors
 
-- [Bar Hofesh](https://github.com/your-github-user) - creator and maintainer
+- [Bar Hofesh](https://github.com/bararchy) - creator and maintainer
+- [Mirsad Halilcevic](https://github.com/sixaphone) - maintainer
