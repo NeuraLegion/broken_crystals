@@ -1,12 +1,16 @@
 version: 1.0
 shards:
+  ameba:
+    github: crystal-ameba/ameba
+    version: 0.12.1
+
   db:
     github: crystal-lang/crystal-db
     version: 0.9.0
 
   exception_page:
     github: crystal-loot/exception_page
-    version: 0.1.2
+    version: 0.1.4
 
   kemal:
     github: kemalcr/kemal
