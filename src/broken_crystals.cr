@@ -2,9 +2,12 @@
 require "../public/**"
 require "kemal"
 require "ecr"
+require "./controllers/**"
 
 module BrokenCrystals
   VERSION = "0.1.0"
+
+  include UserController
 
   get "/headers" do |env|
     headers = env.request.headers
