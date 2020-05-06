@@ -4,11 +4,21 @@ This project is a fun off-time task to create a vulnerable web app in Crystal.
 
 ## Installation
 
-TODO: Write installation instructions here
+The project is available via dockerhub as the easiest option
+
+```bash
+docker pull neuralegion/broken_crystals
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+To run the project use
+
+```bash
+docker run -it neuralegion/broken_crystals -p 3000:3000
+```
+
+and browse `http://localhost:3000/`
 
 ## Development
 
