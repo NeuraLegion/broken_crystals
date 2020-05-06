@@ -4,8 +4,8 @@ require "kemal"
 module BrokenCrystals
   module UserController
     PREFIX = "users"
-    mutable_repo = mutable_repository.new "users"
-    read_repo = read_repository.new "users"
+    mutable_repo = MutableRepository.new "users"
+    read_repo = ReadRepository.new "users"
 
     get "/register" do |env|
       env.response.headers["Content-Type"] = "text/html"
