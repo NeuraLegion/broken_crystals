@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Welcome to Broken Crystals!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-style" action="/login" method="post">
+        <div class="header">
+          <div class="example-icon" >BrokenCrystals</div>
+          <small>Login to our app</small>
+        </div>
+        <hr>
+        <div class="content">
+            <label for="inp" class="inp">
+              <input name="username" type="text" id="inp" placeholder="&nbsp;">
+              <span class="label">Username</span>
+              <span class="border"></span>
+            </label>
+            <label for="inp" class="inp">
+              <input name="password" type="password" id="inp" placeholder="&nbsp;">
+              <span class="label">Password</span>
+              <span class="border"></span>
+            </label>
+          
+        </div>
+        <hr>
+        <div class="footer">
+          <input type="submit" name="submit" value="Login" class="bton login" />
+          <input id="register" type="button" value="Register" class="bton register" />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById('register').onclick = (e) => {
+        e.preventDefault();
+        location.href = "/register";
+      }
+    </script>
+  </body>
+</html>
