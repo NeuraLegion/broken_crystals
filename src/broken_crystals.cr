@@ -16,7 +16,7 @@ module BrokenCrystals
   include LFIController
 
   include UptimeController
-  
+
   include CsrfController
 
   get "/vuln/headers" do |env|

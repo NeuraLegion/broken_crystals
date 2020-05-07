@@ -9,7 +9,7 @@ module BrokenCrystals
       env.response.headers["Content-Type"] = "text/html"
       render "src/views/csrf.ecr"
     end
-  
+
     post "#{CSRF_PREFIX}" do |env|
       env.response.headers["Content-Type"] = "text/html"
       env.response.headers["Access-Control-Allow-Origin"] = "*"
@@ -18,6 +18,6 @@ module BrokenCrystals
       # account = env.params.body["account"]
       amount = env.params.body["amount"].as(String)
       render "src/views/csrf_rss.ecr"
-    end  
+    end
   end
 end

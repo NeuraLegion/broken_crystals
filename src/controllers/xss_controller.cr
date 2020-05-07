@@ -2,8 +2,8 @@ require "../repositories/*"
 
 module BrokenCrystals
   module XSSController
-    XSS_PREFIX = "/vuln/xss"
-    PXSS_PREFIX = "/vuln/pxss"
+    XSS_PREFIX     = "/vuln/xss"
+    PXSS_PREFIX    = "/vuln/pxss"
     DOM_XSS_PREFIX = "/vuln/dom_xss"
     comments_repo = Comments.new
     comment_mutable_repo = MutableRepository.new "comments"
@@ -39,7 +39,6 @@ module BrokenCrystals
       render "src/views/reflected_xss.ecr"
     end
 
-
     # <script>eval(String.fromCharCode(97, 108, 101, 114, 116, 40, 53, 41))</script>
     get "#{XSS_PREFIX}/5" do |env|
       id = env.params.query["id"]? || "5"
@@ -59,23 +58,22 @@ module BrokenCrystals
       render "src/views/reflected_xss.ecr"
     end
 
-
     get "#{PXSS_PREFIX}" do |env|
       comments = comments_repo.get_all
       env.response.headers["Content-Type"] = "text/html"
       render "src/views/pxss_one.ecr"
     end
-  
+
     post "#{PXSS_PREFIX}" do |env|
       comments = comments_repo.get_all
-  
+
       name = env.params.body["name"].as(String)
       content = env.params.body["content"].as(String)
-  
+
       if !name || !content
         render "src/views/error.ecr"
       end
-      
+
       comment_mutable_repo.insert(["name", "content"], [name, content])
       env.response.headers["Content-Type"] = "text/html"
       comments = comments_repo.get_all

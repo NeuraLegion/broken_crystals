@@ -12,7 +12,7 @@ module BrokenCrystals
       env.response.headers["Content-Type"] = "text/html"
     end
 
-    # ....//....//....//....//....//....//etc/passwd
+    # a....//....//....//....//....//....//etc/passwd
     get "#{LFI_PREFIX}/2" do |env|
       image = env.params.query["image"]?
       image = "public/LFI/#{image}"

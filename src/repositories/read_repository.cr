@@ -11,8 +11,7 @@ module BrokenCrystals
       @db.exec("SELECT #{select_columns} FROM #{@table}")
     end
 
-
-    def select_where(column : String, value : String | Int32, columns : Array(String)? = nil )
+    def select_where(column : String, value : String | Int32, columns : Array(String)? = nil)
       value = value.is_a?(String) ? "'#{value}'" : value
       select_columns = columns && columns.size ? columns.join(", ") : "*"
       @db.exec("SELECT #{select_columns} FROM #{@table} WHERE #{column} = #{value}")

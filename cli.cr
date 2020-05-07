@@ -6,7 +6,7 @@ class MyCli < Clim
     usage "hello [options] [arguments] ..."
     version "Version 0.1.0"
     option "-c COMMAND", "--command=COMMAND", type: String, desc: "Executing commands. Avaiable are: 'migration_run', 'migration_revert', 'app_run'."
-    run do |opts, args|
+    run do |opts, _|
       case opts.command
       when "migration_run"
         `env $(cat .env) crystal ./src/db/migration_up.cr`
@@ -17,7 +17,7 @@ class MyCli < Clim
       when "app_run"
         pp "App starting. Visit http://0.0.0.0:3000 to access"
         `env $(cat .env) crystal ./src/broken_crystals.cr`
-      else 
+      else
         pp "No valid command supplied"
       end
     end
