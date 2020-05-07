@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Stored XSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  </head>
+  <body>
+    <h1>Please leave a comment:</h1>
+    <form id="form" action="/pxss_one" method="post">
+      <label for="name">Name</label> <input type="text" id="name" name="name">
+      <label for="content">Comment</label> <input type="text" id="content" name="content">
+      <button id="submit">Submit</button>
+    </form>
+
+    <div>
+     <table style="width:100%">
+      <%- comments.each do |comment| -%>
+        <tr>
+          <td><%= comment.name %></td>
+          <td><%= comment.comment %></td>
+        </tr>
+      <%- end -%>
+    </table> 
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  </body>
+</html>

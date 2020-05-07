@@ -1,8 +1,11 @@
 # TODO: Write documentation for `BrokenCrystals`
+require "./controllers/**"
+require "./repositories/*"
+require "./models/*"
 require "../public/**"
 require "kemal"
 require "ecr"
-require "./controllers/**"
+require "json"
 
 module BrokenCrystals
   VERSION = "0.1.0"
@@ -26,10 +29,10 @@ module BrokenCrystals
     render "src/views/main.ecr"
   end
 
-  get "/greeter" do |env|
+  get "/greeter" do |_|
   end
 
-  post "/greeter" do |env|
+  post "/greeter" do |_|
   end
 
   get "/uptime" do |env|
@@ -126,6 +129,40 @@ module BrokenCrystals
     image = image.gsub("../", "")
     send_file env, image
     env.response.headers["Content-Type"] = "text/html"
+  end
+
+  get "/pxss_one" do |env|
+    read_repo = ReadRepository.new "comments"
+
+    results = read_repo.select
+    comments = Array(Comment).new
+    results.each do
+      results.read(String)
+
+      comment = results.read(String)
+      name = results.read(String)
+
+      comments << Comment.new(name, comment)
+    end
+
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/pxss_one.ecr"
+  end
+
+  post "/pxss_one" do |env|
+    comments = Array(Comment).new
+    mutable_repo = MutableRepository.new "comments"
+
+    name = env.params.body["name"].as(String)
+    content = env.params.body["content"].as(String)
+
+    env.response.headers["Content-Type"] = "text/html"
+    if name && content
+      mutable_repo.insert(["name", "content"], [name, content])
+      env.redirect "/pxss_one"
+    end
+
+    render "src/views/error.ecr"
   end
 
   Kemal.run
