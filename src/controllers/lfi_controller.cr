@@ -8,7 +8,7 @@ module BrokenCrystals
     get "#{LFI_PREFIX}/1" do |env|
       image = env.params.query["image"]?
       image = "public/LFI/#{image}"
-      env.response.headers["Content-Type"] = (MIME.from_extension(Path.new(image).extension.to_s) || "text/html")
+      env.response.headers["Content-Type"] = (MIME.from_extension?(Path.new(image).extension.to_s) || "text/html")
       send_file env, image
     end
 
@@ -17,7 +17,7 @@ module BrokenCrystals
       image = env.params.query["image"]?
       image = "public/LFI/#{image}"
       image = image.gsub("../", "")
-      env.response.headers["Content-Type"] = (MIME.from_extension(Path.new(image).extension.to_s) || "text/html")
+      env.response.headers["Content-Type"] = (MIME.from_extension?(Path.new(image).extension.to_s) || "text/html")
       send_file env, image
     end
   end
