@@ -4,7 +4,7 @@ module BrokenCrystals
   class Initial < Migration
     def up
       @query_runner.query(%|CREATE EXTENSION IF NOT EXISTS "uuid-ossp";|)
-      @query_runner.query(%|REATE EXTENSION IF NOT EXISTS "btree_gist";|)
+      @query_runner.query(%|CREATE EXTENSION IF NOT EXISTS "btree_gist";|)
     end
 
     def down

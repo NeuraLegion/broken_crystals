@@ -2,38 +2,43 @@
   <head>
     <title>Welcome to Broken Crystals!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   </head>
   <body>
-    <h1>Have fun and keep safe!</h1>
-    <ul>
-      <li><a href="/headers">Check your headers!</a></li>
-      <li><a href="/greeter">Let's get to know you a bit more :)</a></li>
-      <li> <a href="/cookies">Cookies? Yum!</a></li>
-      <li> <a href="/oops">Don't click this link, still working on that</a></li>
-      <li> <a href="/uptime_one?command=uptime">What's our uptime?</a></li>
-      <li> <a href="/uptime_two?command=uptime">What's our uptime? (version two)</a></li>
-      <li> <a href="/uptime_three?command=uptime">What's our uptime? (version three)</a></li>
-      <li> <a href="/uptime_four?command=uptime">What's our uptime? (version four)</a></li>
-      <li> <a href="/picture?url=https://www.neuralegion.com/wp-content/themes/Neural/assets/images/NeuraLegionLogoAlt.png">Get me a cool picture!</a></li>
-      <li> <a href="/redirect?url=https://www.neuralegion.com/">Come say hello to our website!</a></li>
-      <li> <a href="/xss_one?id=1">XSS One</a></li>
-      <li> <a href="/xss_two?id=2">XSS Two</a></li>
-      <li> <a href="/xss_three?id=3">XSS Three</a></li>
-      <li> <a href="/xss_four?id=4">XSS Four</a></li>
-      <li> <a href="/xss_five?id=5">XSS Five</a></li>
-      <li> <a href="/xss_six?id=6">XSS Six</a></li>
-      <li> <a href="/dom_xss">DOM XSS</a></li>
-      <li> <a href="/dom_xss2">DOM XSS 2</a></li>
-      <li> <a href="/pxss_one">pXSS One</a></li>
-      <li> <a href="/lfi_one?image=crystals_1.jpg">LFI One</a></li>
-      <li> <a href="/lfi_two?image=crystals_1.jpg">LFI Two</a></li>
-      <li> <a href="/csrf">CSRF</a></li>
+    <div class="container">
+      <h1>Have fun and keep <strike>un</strike>safe!</h1>
 
-    </ul>
+      <ul class="collection">
+        <li><a class="collection-item" href="/vuln/headers">Check your headers!</a></li>
+        <li><a class="collection-item" href="/vuln/greeter">Let's get to know you a bit more :)</a></li>
+        <li><a class="collection-item" href="/vuln/cookies">Cookies? Yum!</a></li>
+        <li><a class="collection-item" href="/vuln/oops">Don't click this link, still working on that</a></li>
+        <li><a class="collection-item" href="/vuln/picture?url=https://www.neuralegion.com/wp-content/themes/Neural/assets/images/NeuraLegionLogoAlt.png">Get me a cool picture!</a></li>
+        <li><a class="collection-item" href="/vuln/redirect?url=https://www.neuralegion.com/">Come say hello to our website!</a></li>
+
+        <%- (1..4).each do |x| -%>
+          <li><a class="collection-item" href="/vuln/uptime/<%= x %>?command=uptime">#<%= x %> What's our uptime?</a></li>
+        <%- end -%>
+
+        <%- (1..6).each do |x| -%>
+          <li><a class="collection-item" href="/vuln/xss/<%= x %>?id=<%= x %>">XSS <%= x %></a></li>
+        <%- end -%>
+        <li><a class="collection-item" href="/vuln/pxss">pXSS One</a></li>
+
+        <%- (1..2).each do |x| -%>
+          <li><a class="collection-item" href="/vuln/dom_xss/<%= x %>">DOM XSS <%= x %></a></li>
+        <%- end -%>
+        
+        <%- (1..2).each do |x| -%>
+          <li><a class="collection-item" href="/vuln/lfi/<%= x %>?image=crystals_1.jpg">LFI <%= x %></a></li>
+        <%- end -%>
+
+        <li><a class="collection-item" href="/vuln/csrf">CSRF</a></li>
+      </ul>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   </body>
 </html>
