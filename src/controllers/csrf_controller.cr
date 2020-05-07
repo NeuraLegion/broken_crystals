@@ -1,8 +1,10 @@
 require "../repositories/*"
+require "kemal"
 
 module BrokenCrystals
   module CsrfController
     CSRF_PREFIX = "/vuln/csrf"
+
     get "#{CSRF_PREFIX}" do |env|
       env.response.headers["Content-Type"] = "text/html"
       render "src/views/csrf.ecr"
