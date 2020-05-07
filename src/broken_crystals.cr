@@ -5,7 +5,6 @@ require "./models/*"
 require "../public/**"
 require "kemal"
 require "ecr"
-require "json"
 
 module BrokenCrystals
   VERSION = "0.1.0"
@@ -35,8 +34,51 @@ module BrokenCrystals
   post "/greeter" do |_|
   end
 
-  get "/uptime" do |env|
+  # /bin/cat /etc/passwd
+  get "/uptime_one" do |env|
     response = `#{env.params.query["command"]? || "uptime"}`
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/uptime.ecr"
+  end
+
+  # uptime%3B%20%2Fbin%2Fcat%20%2Fetc%2Fpasswd
+  get "/uptime_two" do |env|
+    command = env.params.query["command"]? || "uptime"
+    unless command.includes?("uptime")
+      command = "uptime"
+    end
+
+    response = `#{command}`
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/uptime.ecr"
+  end
+
+  # uptime%20%7C%20%2Fbin%2Fcat%20%2Fetc%2Fpasswd
+  get "/uptime_three" do |env|
+    command = env.params.query["command"]? || "uptime"
+
+    [";", "&", "&&", "%3B%0A", "%26", "%26%26"].each { |var| command = command.gsub(var, "") }
+    unless command.includes?("uptime")
+      command = "uptime"
+    end
+
+    response = `#{command}`
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/uptime.ecr"
+  end
+
+  # uptime%20%7C%20%2Fb?n%2Fc?t%20%2Fetc%2Fpasswd
+  get "/uptime_four" do |env|
+    command = env.params.query["command"]? || "uptime"
+
+    [";", "&", "&&", "%3B%0A", "%26", "%26%26"].each { |var| command = command.gsub(var, "") }
+    ["/bin", "/sbin", "/lib", "/opt"].each { |var| command = command.gsub(var, "") }
+    ["cat", "ping", "netstat", "ps", "whoami"].each { |var| command = command.gsub(var, "") }
+    unless command.includes?("uptime")
+      command = "uptime"
+    end
+
+    response = `#{command}`
     env.response.headers["Content-Type"] = "text/html"
     render "src/views/uptime.ecr"
   end
