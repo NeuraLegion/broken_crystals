@@ -207,5 +207,19 @@ module BrokenCrystals
     render "src/views/error.ecr"
   end
 
+  get "/csrf" do |env|
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/csrf.ecr"
+  end
+
+  post "/csrf" do |env|
+    env.response.headers["Content-Type"] = "text/html"
+    env.response.headers["Access-Control-Allow-Origin"] = "*"
+    # need to figure out usage for these
+    # account = env.params.body["account"]
+    amount = env.params.body["amount"].as(String)
+    render "src/views/csrf_rss.ecr"
+  end
+
   Kemal.run
 end

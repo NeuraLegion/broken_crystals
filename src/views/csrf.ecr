@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>CSRF</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  </head>
+  <body>
+    <form action="/csrf" method="POST">
+     <input type="text" name="account" value="account"/>
+     <input type="text" name="amount" value="amount"/>
+     <input type="submit" value="Submit"/>
+   </form>    
+  </body>
+</html>
