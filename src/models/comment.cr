@@ -1,6 +1,10 @@
 module BrokenCrystals
   class Comment
-    def initialize(@name : String, @comment : String)
+    def initialize(@id : String, @name : String, @comment : String)
+    end
+
+    def id
+      @id
     end
 
     def name
