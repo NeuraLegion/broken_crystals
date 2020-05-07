@@ -42,7 +42,7 @@ COPY shard.yml ./
 RUN shards install
 
 # Build broken crystals
-RUN shards build -p --error-trace -Dpreview_mt
+RUN shards build -p --error-trace
 
 #
 # NexPloit
