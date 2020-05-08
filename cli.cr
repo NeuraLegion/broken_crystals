@@ -19,7 +19,7 @@ class MyCli < Clim
         `env $(cat .env) crystal ./src/broken_crystals.cr`
       when "ameba"
         pp "Running ameba..."
-        Process.run("bin/ameba". ["except", "Metrics/CyclomaticComplexity", "--except", "Lint/UselessAssign"], output: STDOUT, error: STDOUT)
+        Process.run("bin/ameba".["except", "Metrics/CyclomaticComplexity", "--except", "Lint/UselessAssign"], output: STDOUT, error: STDOUT)
       else
         pp "No valid command supplied"
       end
