@@ -60,11 +60,11 @@ module BrokenCrystals
       end
 
       unless user && id && email && pass
-        return "Unathorized"
+        raise "Unathorized"
       end
 
       if pass != password
-        return "Invalid credentials"
+        raise "Invalid credentials"
       end
 
       user = UserSession.new(id, user, email)
