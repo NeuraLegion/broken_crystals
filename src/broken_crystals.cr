@@ -36,6 +36,11 @@ module BrokenCrystals
     render "src/views/main.ecr"
   end
 
+  get "/vulns" do |env|
+    env.response.headers["Content-Type"] = "text/html"
+    render "src/views/vulns.ecr"
+  end
+
   get "/vuln/greeter" do |_|
   end
 

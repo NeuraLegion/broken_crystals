@@ -8,8 +8,9 @@ module BrokenCrystals
     read_repo = ReadRepository.new "users"
 
     get "/register" do |env|
+      title = "Registration"
       env.response.headers["Content-Type"] = "text/html"
-      render "src/views/users/register.ecr"
+      render "src/views/users/register.ecr", "src/views/users/auth_base.ecr"
     end
 
     post "/register" do |env|
@@ -22,8 +23,9 @@ module BrokenCrystals
     end
 
     get "/login" do |env|
-      env.response.headers["Content-Type"] = "text/html"
-      render "src/views/users/login.ecr"
+      title = "Login"
+      env.response.headers["content-type"] = "text/html"
+      render "src/views/users/login.ecr", "src/views/users/auth_base.ecr"
     end
 
     post "/login" do |env|
@@ -46,6 +48,12 @@ module BrokenCrystals
       # env.session.string("username", user) kemaaaaaal
       env.response.headers["Content-Type"] = "text/html"
       render "src/views/users/dashboard.ecr"
+    end
+
+    get "/forgotten" do |env|
+      title = "Forgotten password"
+      env.response.headers["content-type"] = "text/html"
+      render "src/views/users/forgotten.ecr", "src/views/users/auth_base.ecr"
     end
   end
 end
