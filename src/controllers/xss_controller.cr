@@ -9,7 +9,7 @@ module BrokenCrystals
     comment_mutable_repo = MutableRepository.new "comments"
 
     # <script>alert(1)</script>
-    get "/#{XSS_PREFIX}/1" do |env|
+    get "#{XSS_PREFIX}/1" do |env|
       id = env.params.query["id"]? || "1"
       env.response.headers["Content-Type"] = "text/html"
       render "src/views/reflected_xss.ecr"
