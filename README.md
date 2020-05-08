@@ -20,6 +20,13 @@ docker run -it neuralegion/broken_crystals -p 3000:3000
 
 and browse `http://localhost:3000/`
 
+If you are running without docker copy `.env.example` and run following commands: 
+
+```bash
+crystal build -o ./cli cli.cr
+./cli --help
+```
+
 ## Development
 
 Development goals and issues will be tracked in the issues section
