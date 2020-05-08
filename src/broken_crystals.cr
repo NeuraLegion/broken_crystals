@@ -26,6 +26,6 @@ module BrokenCrystals
   Kemal::Session.config do |config|
     config.secret = ENV["SESSION_SECRET"]
   end
-  
+
   Kemal.run
 end
