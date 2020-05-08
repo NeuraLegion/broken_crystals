@@ -6,7 +6,7 @@ shards:
 
   clim:
     github: at-grandpa/clim
-    version: 0.10.0
+    version: 0.11.0
 
   db:
     github: crystal-lang/crystal-db
@@ -19,6 +19,10 @@ shards:
   kemal:
     github: kemalcr/kemal
     version: 0.26.1
+
+  kemal-session:
+    github: neuralegion/kemal-session
+    version: 0.13.0
 
   kilt:
     github: jeromegn/kilt

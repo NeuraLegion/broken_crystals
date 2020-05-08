@@ -15,7 +15,9 @@ dependencies:
         github: kemalcr/kemal
       pg:
         github: will/crystal-pg
-
+      kemal-session:
+        github: neuralegion/kemal-session
+        
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
