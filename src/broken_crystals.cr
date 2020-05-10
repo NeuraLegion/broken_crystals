@@ -2,7 +2,6 @@
 require "./controllers/**"
 require "./repositories/*"
 require "./models/*"
-require "../public/**"
 require "kemal"
 require "ecr"
 
@@ -27,5 +26,6 @@ module BrokenCrystals
     config.secret = ENV["SESSION_SECRET"]
   end
 
+  public_folder "/opt/broken_crystals/public"
   Kemal.run
 end
