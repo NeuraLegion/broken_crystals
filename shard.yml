@@ -5,7 +5,7 @@ authors:
   - Bar Hofesh <bar.hofesh@gmail.com>
   - Mirsad Halilcevic <miki.halilcevic@gmail.com>
   - Amar Zlojic <amar.zlojic@gmail.com>
-
+  - Dzevad Alibegovic <dzevad.alibeg@gmail.com>
 targets:
   broken_crystals:
     main: src/broken_crystals.cr
