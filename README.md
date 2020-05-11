@@ -45,3 +45,5 @@ Development goals and issues will be tracked in the issues section
 - [Mirsad Halilcevic](https://github.com/sixaphone) - maintainer
 - [Amar Zlojic](https://github.com/amar771) - maintainer
 - [Faris Seferagic](https://github.com/farrza) - maintainer
+- [Dzevad Alibegovic](https://github.com/cuteghost) - maintainer
+
