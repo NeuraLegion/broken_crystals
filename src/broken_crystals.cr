@@ -26,6 +26,7 @@ module BrokenCrystals
     config.secret = ENV["SESSION_SECRET"]
   end
 
-  public_folder "/opt/broken_crystals/public"
+  public_folder ENV["PUBLIC_PATH"]
+
   Kemal.run
 end
