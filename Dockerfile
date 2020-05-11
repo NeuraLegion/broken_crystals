@@ -33,8 +33,6 @@ WORKDIR /opt/broken_crystals
 
 COPY src ./src
 COPY spec ./spec
-COPY public/ ./public/
-
 # COPY spec_integration ./spec_integration
 COPY shard.yml ./
 
@@ -56,10 +54,18 @@ ENV CRYSTAL_WORKERS=$CRYSTAL_WORKERS
 RUN apt-get update -qq --fix-missing && apt-get install -y --no-install-recommends \
   libevent-2.1 ca-certificates libevent-pthreads-2.1-6 curl
 
-WORKDIR /opt/broken_crystals
+# Create relevant directories
+RUN mkdir -p /opt/broken_crystals/public
+
+WORKDIR /opt/broken_crystals/
 
 COPY --from=builder /opt/broken_crystals/bin/broken_crystals /usr/bin/
-COPY ./public/ /opt/broken_crystals/
-
+COPY ./public/assets/ ./public/assets
+COPY ./public/css/ ./public/css
+COPY ./public/LFI/ ./public/LFI
+COPY ./public/images/ ./public/images
+COPY ./public/js/ ./public/js
+COPY ./public/media/ ./public/media
+COPY ./public/vendor/ ./public/vendor
 
 ENTRYPOINT ["/usr/bin/broken_crystals"]
