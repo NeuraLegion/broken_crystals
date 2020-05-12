@@ -9,17 +9,18 @@ class MyCli < Clim
     run do |opts, _|
       case opts.command
       when "migration_run"
-        `env $(cat .env) crystal ./src/db/migration_up.cr`
-        pp "migrated"
+        pp "RUNNING MIGRATIONS"
+        Process.run("crystal", ["./src/db/migration_up.cr"], output: STDOUT, error: STDOUT)
+        pp "MIGRATIED"
       when "migration_revert"
-        `env $(cat .env) crystal ./src/db/migration_down.cr`
-        pp "downgrated"
+        pp "REVERTING ALL MIGRATIONS"
+        Process.run("crystal", ["./src/db/migration_down.cr"], output: STDOUT, error: STDOUT)
+        pp "DATABASE REVERTED"
       when "app_run"
-        pp "App starting. Visit http://0.0.0.0:3000 to access"
-        `env $(cat .env) crystal ./src/broken_crystals.cr`
+        Process.run("crystal", ["./src/broken_crystals.cr"], output: STDOUT, error: STDOUT)
       when "ameba"
         pp "Running ameba..."
-        Process.run("bin/ameba".["except", "Metrics/CyclomaticComplexity", "--except", "Lint/UselessAssign"], output: STDOUT, error: STDOUT)
+        Process.run("bin/ameba", ["except", "Metrics/CyclomaticComplexity", "--except", "Lint/UselessAssign"], output: STDOUT, error: STDOUT)
       else
         pp "No valid command supplied"
       end

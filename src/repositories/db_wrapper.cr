@@ -5,7 +5,7 @@ module BrokenCrystals
     @query_runner : DB::Database
 
     def initialize
-      @query_runner = DB.open(ENV["POSTGRES_URL"]? || "postgresql://postgres:password@localhost:5432/broken_crystal")
+      @query_runner = DB.open(CONFIG.postgres_url)
     end
 
     def exec(query : String)

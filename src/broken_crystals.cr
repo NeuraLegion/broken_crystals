@@ -2,6 +2,7 @@
 require "./controllers/**"
 require "./repositories/*"
 require "./models/*"
+require "./config"
 require "kemal"
 require "ecr"
 
@@ -23,10 +24,10 @@ module BrokenCrystals
   include CsrfController
 
   Kemal::Session.config do |config|
-    config.secret = ENV["SESSION_SECRET"]
+    config.secret = CONFIG.session_secret
   end
 
-  public_folder ENV["PUBLIC_PATH"]
+  public_folder CONFIG.public_path
 
   Kemal.run
 end

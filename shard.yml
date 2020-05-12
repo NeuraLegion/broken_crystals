@@ -20,7 +20,9 @@ dependencies:
       kemal-session:
         github: neuralegion/kemal-session
         version: ~>  0.13.0
-
+      dotenv:
+        github: drum445/dotenv
+        version: ~> 0.3.0
         
 development_dependencies:
   ameba:

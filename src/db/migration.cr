@@ -1,4 +1,5 @@
 require "pg"
+require "../config"
 
 module BrokenCrystals
   abstract class Migration
@@ -8,7 +9,7 @@ module BrokenCrystals
     abstract def down
 
     def initialize
-      @query_runner = DB.open(ENV["POSTGRES_URL"])
+      @query_runner = DB.open(CONFIG.postgres_url)
     end
   end
 end
