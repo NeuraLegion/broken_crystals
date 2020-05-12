@@ -20,6 +20,5 @@ module BrokenCrystals
       env.response.headers["Content-Type"] = "text/html"
       render "src/views/shop/detail.ecr", "src/views/shop/layout.ecr"
     end
-
   end
 end
