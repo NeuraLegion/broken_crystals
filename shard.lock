@@ -12,6 +12,10 @@ shards:
     github: crystal-lang/crystal-db
     version: 0.9.0
 
+  dotenv:
+    github: drum445/dotenv
+    version: 0.3.0
+
   exception_page:
     github: crystal-loot/exception_page
     version: 0.1.4
