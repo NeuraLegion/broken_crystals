@@ -35,6 +35,7 @@ COPY src ./src
 COPY spec ./spec
 # COPY spec_integration ./spec_integration
 COPY shard.yml ./
+COPY ./.env.example /.env
 
 # Install dependencies
 RUN shards install
@@ -67,5 +68,6 @@ COPY ./public/images/ ./public/images
 COPY ./public/js/ ./public/js
 COPY ./public/media/ ./public/media
 COPY ./public/vendor/ ./public/vendor
+COPY ./.env.example /opt/broken_crystals/.env
 
 ENTRYPOINT ["/usr/bin/broken_crystals"]
