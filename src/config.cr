@@ -8,9 +8,9 @@ module BrokenCrystals
 
     def initialize
       env = Dotenv.load ".env"
-      @postgres_url = env["POSTGRES_URL"]
-      @session_secret = env["SESSION_SECRET"]
-      @public_path = env["PUBLIC_PATH"]
+      @postgres_url = ENV["POSTGRES_URL"]? || env["POSTGRES_URL"]
+      @session_secret = ENV["SESSION_SECRET"]? || env["SESSION_SECRET"]
+      @public_path = ENV["PUBLIC_PATH"]? || env["PUBLIC_PATH"]
     end
 
     def postgres_url
