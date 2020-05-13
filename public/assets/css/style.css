@@ -282,6 +282,32 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Get Startet Button */
+.get-started-btn {
+  margin-left: 25px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 6px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.get-started-btn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .get-started-btn {
+    margin: 0 48px 0 0;
+    padding: 6px 18px;
+  }
+}
+
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
