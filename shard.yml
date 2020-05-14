@@ -27,7 +27,6 @@ dependencies:
   micrate:
     github: amberframework/micrate
     version: ~> 0.7.0
-
         
 development_dependencies:
   ameba:
