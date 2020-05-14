@@ -9,7 +9,7 @@ module BrokenCrystals
     abstract def down
 
     def initialize
-      @query_runner = DB.open(CONFIG.postgres_url)
+      @query_runner = DB.open(Config.new.postgres_url)
     end
   end
 end

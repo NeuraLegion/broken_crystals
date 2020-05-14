@@ -24,7 +24,7 @@ If you are running without docker copy `.env.example` and run following commands
 
 ```bash
 shards update
-DB_URL=postgresql://YOUR_DB_USERNAME:YOUR_PASS@localhost:5432/YOUR_DB_NAME ./lib/micrate/examples/micrate up
+crystal micrate.cr up
 crystal build -o ./cli cli.cr
 ./cli --help
 ```

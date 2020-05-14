@@ -1,8 +1,9 @@
 require "dotenv"
+require "log"
 
 module BrokenCrystals
   class Config
-    Log = BrokenCrystals::Log.for("Config")
+    Log = ::Log.for("Config")
     getter postgres_url : String
     getter session_secret : String
     getter public_path : String
