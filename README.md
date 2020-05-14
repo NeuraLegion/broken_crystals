@@ -23,6 +23,8 @@ and browse `http://localhost:3000/`
 If you are running without docker copy `.env.example` and run following commands: 
 
 ```bash
+shards update
+crystal micrate.cr up
 crystal build -o ./cli cli.cr
 ./cli --help
 ```
@@ -33,7 +35,7 @@ Development goals and issues will be tracked in the issues section
 
 ## Contributing
 
-1. Fork it (<https://github.com/NeuraLEgion/broken_crystals/fork>)
+1. Fork it (<https://github.com/NeuraLegion/broken_crystals/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
