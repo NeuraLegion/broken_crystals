@@ -5,24 +5,28 @@ authors:
   - Bar Hofesh <bar.hofesh@gmail.com>
   - Mirsad Halilcevic <miki.halilcevic@gmail.com>
   - Amar Zlojic <amar.zlojic@gmail.com>
+  - Faris Seferagic <faris.seferagic@gmail.com>
   - Dzevad Alibegovic <dzevad.alibeg@gmail.com>
 targets:
   broken_crystals:
     main: src/broken_crystals.cr
 
 dependencies:
-      kemal:
-        github: kemalcr/kemal
-        version: ~> 0.26.1
-      pg:
-        github: will/crystal-pg
-        version: ~>  0.21.0
-      kemal-session:
-        github: neuralegion/kemal-session
-        version: ~>  0.13.0
-      dotenv:
-        github: drum445/dotenv
-        version: ~> 0.3.0
+  kemal:
+    github: kemalcr/kemal
+    version: ~> 0.26.1
+  pg:
+    github: will/crystal-pg
+    version: ~>  0.21.0
+  kemal-session:
+    github: neuralegion/kemal-session
+    version: ~>  0.13.0
+  dotenv:
+    github: drum445/dotenv
+    version: ~> 0.3.0
+  micrate:
+    github: amberframework/micrate
+
         
 development_dependencies:
   ameba:
