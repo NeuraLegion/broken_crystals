@@ -1,4 +1,5 @@
 require "../repositories/*"
+require "../models"
 
 module BrokenCrystals
   module HomeController

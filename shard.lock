@@ -8,6 +8,10 @@ shards:
     github: at-grandpa/clim
     version: 0.11.2
 
+  crecto:
+    github: Crecto/crecto
+    version: 0.11.3
+
   db:
     github: crystal-lang/crystal-db
     version: 0.9.0

@@ -6,12 +6,13 @@ require "kemal-session"
 module BrokenCrystals
   module UserController
     SHOP_PREFIX = "shop"
-    mutable_repo = MutableRepository.new "shop"
-    read_repo = ReadRepository.new "shop"
+    mutable_repo = MutableRepository.new "products"
+    read_repo = ReadRepository.new "products"
 
     get "/marketplace" do |env|
       title = "Marketplace"
       env.response.headers["Content-Type"] = "text/html"
+      products = read_repo.select
       render "src/views/shop/listing.ecr", "src/views/shop/layout.ecr"
     end
 
