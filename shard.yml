@@ -27,8 +27,10 @@ dependencies:
   micrate:
     github: amberframework/micrate
     version: ~> 0.7.0
+  crecto:
+    github: Crecto/crecto
+    version: ~> 0.11.3
 
-        
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
