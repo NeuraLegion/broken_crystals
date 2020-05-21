@@ -24,7 +24,8 @@ If you are running without docker copy `.env.example` and run following commands
 
 ```bash
 shards update
-crystal micrate.cr up
+crystal db/micrate.cr up
+crystal db/seed.cr
 crystal build -o ./cli cli.cr
 ./cli --help
 ```
