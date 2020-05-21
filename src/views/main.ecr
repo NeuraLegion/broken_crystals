@@ -129,140 +129,30 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Healing</li>
-              <li data-filter=".filter-card">Jewellery</li>
-              <li data-filter=".filter-web">Gemstones</li>
+              <li data-filter=".filter-Healing">Healing</li>
+              <li data-filter=".filter-Jewellery">Jewellery</li>
+              <li data-filter=".filter-Gemstones">Gemstones</li>
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <%- products.each do |product| -%>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-<%= product.category.name %>">
             <div class="portfolio-wrap">
-              <img src="assets/img/crystals/amethyst.jpg" class="img-fluid" alt="">
+              <img src="<%= product.photos[0].url %>" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Amethyst</h4>
-                <p>a violet variety of quartz</p>
+                <h4><%= product.name %></h4>
+                <p><%= product.short_description %></p>
               </div>
               <div class="portfolio-links">
-                <a href="assets/img/crystals/amethyst.jpg" data-gall="portfolioGallery" class="venobox" title="Amethyst"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/crystals/amethyst.jpg" data-gall="portfolioGallery" class="venobox" title="<%= product.name %>"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/ruby.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Ruby</h4>
-                <p>an intense heart crystal</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/ruby.jpg" data-gall="portfolioGallery" class="venobox" title="Ruby"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/opal.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Opal</h4>
-                <p>the precious stone</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/opal.jpg" data-gall="portfolioGallery" class="venobox" title="Opal"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/sapphire.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Sapphire</h4>
-                <p></p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/sapphire.jpg" data-gall="portfolioGallery" class="venobox" title="Sapphire"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/pyrite.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Pyrite</h4>
-                <p>fools gold</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/pyrite.jpg" data-gall="portfolioGallery" class="venobox" title="Pyrite"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/amber.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Amber</h4>
-                <p>fossilized tree resin</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/amber.jpg" data-gall="portfolioGallery" class="venobox" title="Amber"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/emerald.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Emerald</h4>
-                <p>symbol of fertility and life</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/emerald.jpg" data-gall="portfolioGallery" class="venobox" title="Emerald"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/shattuckite.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Shattuckite</h4>
-                <p>mistery</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/shattuckite.jpg" data-gall="portfolioGallery" class="venobox" title="Shattuckite"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/crystals/bismuth.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Bismuth</h4>
-                <p>rainbow</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="assets/img/crystals/bismuth.jpg" data-gall="portfolioGallery" class="venobox" title="Bismuth"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
+          <%- end -%>
 
         </div>
 
@@ -323,6 +213,18 @@
             <h4>Ceo &amp; Founder</h4>
           </div>
 
+          <%- testimonials.each do |testimonial| -%>
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              <%= testimonial.testimonial %>
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <h3><%= testimonial.name%></h3>
+            <h4><%= testimonial.title%></h4>
+          </div>
+        <%- end -%>
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -368,7 +270,30 @@
           </div>
 
         </div>
+      </div>
 
+
+
+
+
+      <div class="container mt-5" data-aos="fade-up">
+            <form method="post" role="form">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="text" class="form-control" name="job-title" id="job-title" placeholder="Your Title" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="testimonial" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Testimonial"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="text-center"><button class="btn-primary" type="submit">Send Testimonial</button></div>
+            </form>
       </div>
     </section><!-- End Testimonials Section -->
 

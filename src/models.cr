@@ -24,21 +24,26 @@ module Models
     end
   end
 
-  class Product < Crecto::Model
+  class Category < Crecto::Model
     set_created_at_field nil
     set_updated_at_field nil
 
-    enum Category
-      Healing
-      Jewellery
-      Gemstones
+    schema "categories" do # table name
+      field :name, String
+      has_many :product, Product
     end
+  end
+
+  class Product < Crecto::Model
+    set_created_at_field nil
+    set_updated_at_field nil
 
     schema "products" do # table name
       field :name, String
       field :short_description, String
       field :description, String
-      enum_field :category, Category
+      belongs_to :category, Category
+      has_many :photos, Photo, foreign_key: :product_id
     end
   end
 
@@ -49,6 +54,17 @@ module Models
     schema "photos" do # table name
       field :url, String
       belongs_to :product, Product
+    end
+  end
+
+  class Testimonial < Crecto::Model
+    set_created_at_field nil
+    set_updated_at_field nil
+
+    schema "testimonials" do # table name
+      field :name, String
+      field :title, String
+      field :testimonial, String
     end
   end
 end
