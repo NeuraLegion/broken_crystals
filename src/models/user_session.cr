@@ -12,5 +12,9 @@ module BrokenCrystals
     include Kemal::Session::StorableObject
 
     def initialize(@id : String, @username : String, @email : String); end
+
+    def username
+      @username
+    end
   end
 end
