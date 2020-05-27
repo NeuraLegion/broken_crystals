@@ -1,6 +1,8 @@
 require "../repositories/*"
 require "../models"
 require "../../db/repo"
+require "kemal"
+require "kemal-session"
 
 module BrokenCrystals
   module HomeController
@@ -11,6 +13,7 @@ module BrokenCrystals
       env.response.headers["Content-Type"] = "text/html"
       products = Repo.all(Models::Product, Query.preload([:photos, :category]))
       testimonials = Repo.all(Models::Testimonial)
+      user = env.session.object?("user")
       render "src/views/main.ecr"
     end
 
@@ -29,6 +32,7 @@ module BrokenCrystals
 
       products = Repo.all(Models::Product, Query.preload([:photos, :category]))
       testimonials = Repo.all(Models::Testimonial)
+      user = env.session.object?("user")
       render "src/views/main.ecr"
     end
 

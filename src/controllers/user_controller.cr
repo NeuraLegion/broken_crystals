@@ -1,5 +1,5 @@
-require "../repositories/*"
-require "../models/*"
+require "../models"
+require "../../db/repo"
 require "kemal"
 require "kemal-session"
 
@@ -19,9 +19,15 @@ module BrokenCrystals
       username = env.params.body["username"].as(String)
       email = env.params.body["email"].as(String)
       password = env.params.body["password"].as(String)
-      mutable_repo.insert(["username", "email", "password"], [username, email, password])
+
+      user = Models::User.new
+      user.username = username
+      user.email = email
+      user.password = password
+      Repo.insert(user)
+
       env.response.headers["Content-Type"] = "text/html"
-      render "src/views/users/login.ecr"
+      env.redirect "/login"
     end
 
     get "/login" do |env|
@@ -33,44 +39,28 @@ module BrokenCrystals
     get "/logout" do |env|
       env.response.headers["Content-Type"] = "text/html"
       env.session.destroy
-      "<h1>You have been logged out.</h1> <a href='/login'> Login</a>"
-    end
-
-    get "/me" do |env|
-      env.response.headers["Content-Type"] = "text/plain"
-      user = env.session.object("user").as(UserSession)
-      "You are authenticated as #{user.username}"
+      env.redirect "/"
     end
 
     post "/login" do |env|
       username = env.params.body["username"].as(String)
       password = env.params.body["password"].as(String)
-      result = read_repo.select_where("username", username, ["id", "username", "email", "password"])
 
-      user = nil
-      pass = nil
-      email = nil
-      id = nil
+      user = Repo.get_by!(Models::User, username: username, password: password)
 
-      result.each do
-        id = result.read(String)
-        user = result.read(String)
-        email = result.read(String)
-        pass = result.read(String)
-      end
-
-      unless user && id && email && pass
+      unless user
         raise "Unathorized"
       end
 
-      if pass != password
-        raise "Invalid credentials"
-      end
+      id = user.id.to_s
+      username = user.username
+      email = user.email
 
-      user = UserSession.new(id, user, email)
-      env.session.object("user", user)
+      user_session = UserSession.new(id, username, email) if id && username && email
+
+      env.session.object("user", user_session) if user_session
       env.response.headers["Content-Type"] = "text/html"
-      render "src/views/users/dashboard.ecr"
+      env.redirect "/"
     end
 
     get "/forgotten" do |env|

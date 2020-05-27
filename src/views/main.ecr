@@ -54,7 +54,7 @@
         <div class="col-xl-9 d-flex align-items-center">
           <!-- Uncomment below if you prefer to use an image logo -->
            <a href="/" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid">
-             BROKEN CRYSTALS
+             BROKEN CRYSTALS 
            </a>
 
           <nav class="nav-menu d-none d-lg-block">
@@ -91,7 +91,11 @@
             </ul>
           </nav><!-- .nav-menu -->
 
+         <%- if user -%>
+           <a href="/logout" class="get-started-btn scrollto">Log out (<%= user.username %>)</a>
+         <%- else -%>
           <a href="/login" class="get-started-btn scrollto">Sign in</a>
+         <%- end -%>
         </div>
       </div>
 
