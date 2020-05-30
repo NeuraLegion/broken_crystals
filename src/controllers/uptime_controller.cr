@@ -1,4 +1,3 @@
-require "../repositories/*"
 require "kemal"
 
 module BrokenCrystals

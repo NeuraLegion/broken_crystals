@@ -20,14 +20,23 @@ docker run -it neuralegion/broken_crystals -p 3000:3000
 
 and browse `http://localhost:3000/`
 
-If you are running without docker copy `.env.example` and run following commands: 
+If you are running without docker copy `.env.example` as `.env` with your settings to the root directory and run following commands: 
 
 ```bash
-shards update
-crystal db/micrate.cr up
-crystal db/seed.cr
-crystal build -o ./cli cli.cr
-./cli --help
+# build app
+shards build
+
+# database migrations
+bin/micrate up
+
+# seed database
+bin/seed
+
+# run app
+bin/broken_crystals
+
+# try cli
+bin/cli --help
 ```
 
 ## Development

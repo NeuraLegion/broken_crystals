@@ -10,6 +10,12 @@ authors:
 targets:
   broken_crystals:
     main: src/broken_crystals.cr
+  cli:
+    main: src/cli.cr
+  micrate:
+    main: db/micrate.cr
+  seed:
+    main: db/seed.cr
 
 dependencies:
   kemal:

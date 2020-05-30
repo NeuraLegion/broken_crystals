@@ -1,5 +1,3 @@
-require "../repositories/*"
-
 module BrokenCrystals
   module LFIController
     LFI_PREFIX = "/vuln/lfi"
