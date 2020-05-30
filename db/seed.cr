@@ -25,7 +25,7 @@ PRODUCTS = {
     description:       "",
     category:          :gemstones,
     images:            {
-      "assets/img/crystals/amethyst.jpg",
+      "img/crystals/amethyst.jpg",
     },
   },
   {
@@ -34,7 +34,7 @@ PRODUCTS = {
     description:       "",
     category:          :gemstones,
     images:            {
-      "assets/img/crystals/ruby.jpg",
+      "img/crystals/ruby.jpg",
     },
   },
   {
@@ -43,7 +43,7 @@ PRODUCTS = {
     description:       "",
     category:          :healing,
     images:            {
-      "assets/img/crystals/opal.jpg",
+      "img/crystals/opal.jpg",
     },
   },
   {
@@ -52,7 +52,7 @@ PRODUCTS = {
     description:       "",
     category:          :jewellery,
     images:            {
-      "assets/img/crystals/sapphire.jpg",
+      "img/crystals/sapphire.jpg",
     },
   },
   {
@@ -61,7 +61,7 @@ PRODUCTS = {
     description:       "",
     category:          :gemstones,
     images:            {
-      "assets/img/crystals/pyrite.jpg",
+      "img/crystals/pyrite.jpg",
     },
   },
   {
@@ -70,7 +70,7 @@ PRODUCTS = {
     description:       "",
     category:          :jewellery,
     images:            {
-      "assets/img/crystals/amber.jpg",
+      "img/crystals/amber.jpg",
     },
   },
   {
@@ -79,7 +79,7 @@ PRODUCTS = {
     description:       "",
     category:          :healing,
     images:            {
-      "assets/img/crystals/emerald.jpg",
+      "img/crystals/emerald.jpg",
     },
   },
   {
@@ -88,7 +88,7 @@ PRODUCTS = {
     description:       "",
     category:          :healing,
     images:            {
-      "assets/img/crystals/shattuckite.jpg",
+      "img/crystals/shattuckite.jpg",
     },
   },
   {
@@ -97,7 +97,7 @@ PRODUCTS = {
     description:       "",
     category:          :jewellery,
     images:            {
-      "assets/img/crystals/bismuth.jpg",
+      "img/crystals/bismuth.jpg",
     },
   },
 }

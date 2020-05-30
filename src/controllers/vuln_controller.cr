@@ -1,5 +1,3 @@
-require "../repositories/*"
-
 module BrokenCrystals
   module VulnController
     VULN_PREFIX = "/vuln"

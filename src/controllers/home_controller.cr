@@ -1,8 +1,6 @@
-require "../repositories/*"
-require "../models"
 require "../../db/repo"
+require "../models"
 require "kemal"
-require "kemal-session"
 
 module BrokenCrystals
   module HomeController

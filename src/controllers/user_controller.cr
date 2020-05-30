@@ -1,18 +1,17 @@
-require "../models"
 require "../../db/repo"
+require "../models"
+require "../sessions"
 require "kemal"
 require "kemal-session"
 
 module BrokenCrystals
   module UserController
     PREFIX = "users"
-    mutable_repo = MutableRepository.new "users"
-    read_repo = ReadRepository.new "users"
 
     get "/register" do |env|
       title = "Registration"
       env.response.headers["Content-Type"] = "text/html"
-      render "src/views/users/register.ecr", "src/views/users/auth_base.ecr"
+      render "src/views/users/register.ecr", "src/views/users/layout.ecr"
     end
 
     post "/register" do |env|
@@ -33,7 +32,7 @@ module BrokenCrystals
     get "/login" do |env|
       title = "Login"
       env.response.headers["content-type"] = "text/html"
-      render "src/views/users/login.ecr", "src/views/users/auth_base.ecr"
+      render "src/views/users/login.ecr", "src/views/users/layout.ecr"
     end
 
     get "/logout" do |env|
@@ -66,7 +65,7 @@ module BrokenCrystals
     get "/forgotten" do |env|
       title = "Forgotten password"
       env.response.headers["content-type"] = "text/html"
-      render "src/views/users/forgotten.ecr", "src/views/users/auth_base.ecr"
+      render "src/views/users/forgotten.ecr", "src/views/users/layout.ecr"
     end
   end
 end
