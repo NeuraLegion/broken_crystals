@@ -7,8 +7,10 @@ module BrokenCrystals
     Query = Crecto::Repo::Query.new
 
     HOME_PREFIX = ""
+
     get "/" do |env|
       env.response.headers["Content-Type"] = "text/html"
+      search = env.params.query["search"]?
       products = Repo.all(Models::Product, Query.preload([:photos, :category]))
       testimonials = Repo.all(Models::Testimonial)
       user = env.session.object?("user")
@@ -17,26 +19,19 @@ module BrokenCrystals
 
     post "/" do |env|
       env.response.headers["Content-Type"] = "text/html"
-
-      name = env.params.body["name"].as(String)
-      job_title = env.params.body["job-title"].as(String)
-      testimonial = env.params.body["testimonial"].as(String)
-
-      object = Models::Testimonial.new
-      object.name = name
-      object.title = job_title
-      object.testimonial = testimonial
-      Repo.insert(object)
-
-      products = Repo.all(Models::Product, Query.preload([:photos, :category]))
-      testimonials = Repo.all(Models::Testimonial)
-      user = env.session.object?("user")
-      render "src/views/main.ecr"
+      env.redirect "/"
     end
 
     get "/vulns" do |env|
       env.response.headers["Content-Type"] = "text/html"
       render "src/views/vulns.ecr"
+    end
+
+    get "/photo" do |env|
+      image = env.params.query["image"]?
+      image = "public/img/#{image}"
+      env.response.headers["Content-Type"] = (MIME.from_extension?(Path.new(image).extension.to_s) || "text/html")
+      send_file env, image
     end
   end
 end

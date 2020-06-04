@@ -39,7 +39,7 @@
   <header>
     <nav id="header" class="navbar fixed-top navbar-expand-lg navbar-dark bg-faded navbar-margin">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="img/logo.png" width="50" height="50" alt="" loading="lazy">
           BROKEN CRYSTALS
         </a>
@@ -90,7 +90,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" method="post">
+        <form class="form-inline my-2 my-lg-0" method="get">
           <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -114,12 +114,20 @@
     <div class="container-fluid" data-aos="fade-up">
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <%- if search -%>
+          <h1>You searched for: <%= search %></h1>
+          <h2>143 records found</h2>
+          <div><a href="#results" class="btn-get-started scrollto">See results</a></div>
+        <%- else -%>
           <h1>Your Vulnerable Crystal Marketplace</h1>
           <h2>All the beautiful stones in one place</h2>
           <div><a href="#marketplace" class="btn-get-started scrollto">Get Started</a></div>
+        <%- end -%>
         </div>
         <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+          <a href="/photo?image=logo.png">
           <img src="img/hero-img.png" class="img-fluid animated" alt="">
+          </a>
         </div>
       </div>
     </div>
