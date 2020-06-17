@@ -1,0 +1,31 @@
+name: broken_crystals
+version: 0.1.0
+
+authors:
+  - Faris Seferagic <faris.seferagic@gmail.com>
+
+targets:
+  broken_crystals:
+    main: src/broken_crystals.cr
+
+crystal: 0.35.0
+
+dependencies:
+  lucky:
+    github: luckyframework/lucky
+    version: ~> 0.22
+  authentic:
+    github: luckyframework/authentic
+    version: ~> 0.6.0
+  carbon:
+    github: luckyframework/carbon
+    version: ~> 0.1.1
+  dotenv:
+    github: gdotdesign/cr-dotenv
+    version: ~> 0.7.0
+  lucky_flow:
+    github: luckyframework/lucky_flow
+    version: ~> 0.6.2
+  jwt:
+    github: crystal-community/jwt
+    version: ~> 1.4.2
