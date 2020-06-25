@@ -12,3 +12,5 @@ require("turbolinks").start();
 // document.addEventListener("turbolinks:load", function() {
 //   ...
 // })
+import "./main.js";
+//import "./bootstrap.min.js";

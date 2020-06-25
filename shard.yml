@@ -29,3 +29,6 @@ dependencies:
   jwt:
     github: crystal-community/jwt
     version: ~> 1.4.2
+  kilt:
+    github: jeromegn/kilt
+    version: ~> 0.6.0
