@@ -12,12 +12,18 @@
 // https://stackoverflow.com/questions/39535760/what-does-a-tilde-in-a-css-url-do
 
 @import "~normalize-scss/sass/normalize/import-now";
+@import "bootstrap.min.css";
+@import "style.css";
 // Add your own components and import them like this:
 //
 // @import "components/my_new_component";
 
 // Default Lucky styles.
 // Delete these when you're ready to bring in your own CSS.
+
+
+
+/*
 body {
   font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -64,3 +70,4 @@ textarea {
   margin: 9px 0;
   padding: 6px 9px;
 }
+*/
